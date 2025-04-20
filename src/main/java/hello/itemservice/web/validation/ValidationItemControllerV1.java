@@ -50,9 +50,14 @@ public class ValidationItemControllerV1 {
 
 
         // 검증 로직
+//        if (!StringUtils.hasText(item.getItemName()) && item.getPrice() == null && item.getQuantity() == null) {
+//            errors.put("globalError", "모든 항목을 입력해주세요.");
+//            model.addAttribute("errors", errors);
+//            return "validation/v1/addForm";
+//        }
         if (!StringUtils.hasText(item.getItemName())) errors.put("itemName", "상품 이름은 필수입니다.");
 
-        if (item.getPrice() < 1000 || item.getPrice() > 1000000) errors.put("price", "가격은 1,000 ~ 1,000,000 까지 허용합니다.");
+        if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) errors.put("price", "가격은 1,000 ~ 1,000,000 까지 허용합니다.");
 
         if (item.getQuantity() == null || item.getQuantity() >= 9999)
             errors.put("quantity", "수량은 필수이며, 최대 9,999 까지 허용합니다.");
