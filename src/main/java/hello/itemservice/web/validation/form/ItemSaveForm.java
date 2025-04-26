@@ -1,12 +1,14 @@
 package hello.itemservice.web.validation.form;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@Slf4j
 @Data
 public class ItemSaveForm {
 
